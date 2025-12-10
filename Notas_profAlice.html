@@ -78,6 +78,19 @@
         divResult.innerHTML = ``
     }
 
+    function mostrarAluno() {
+        buscar = prompt('Teste');
+
+        for (let i = 0; i < vtrInformacoes.length; i++) {
+            if (vtNomesGerais.indexOf(buscar) == -1) {
+                alert('erro');
+                break
+            }
+            var contador = i;
+        }
+        divResult.innerHTML = `Nome: ${vtNomesGerais[contador]} <br> Nota 1: ${vtrInformacoes[contador].nota1} <br> Nota 2: ${vtrInformacoes[contador].nota2} <br> Nota 3: ${vtrInformacoes[contador].nota3} <br> ${vtrInformacoes[contador].media.toFixed(2)} `
+    }
+
 </script>
 
 </html>
