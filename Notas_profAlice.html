@@ -78,109 +78,18 @@
         divResult.innerHTML = ``
     }
 
-    function media() {
-    if (vtrInformacoes.length === 0) {
-        alert("Nenhum aluno cadastrado ainda.");
-        return;
-    }
+    function mostrarAluno() {
+        buscar = prompt('Teste');
 
-    var axNomePrompt = prompt("A maior ou a menor média?");
-    if (!axNomePrompt) return;
-
-    var axVerificacao = axNomePrompt.toUpperCase();
-
-    var axMediaMaior = vtrInformacoes[0].media;
-    var axMediaMenor = vtrInformacoes[0].media;
-    var indiceMaior = 0;
-    var indiceMenor = 0;
-
-    divResult.innerHTML = "";
-
-    if (axVerificacao === "MAIOR") {
-
-        for (let i = 1; i < vtrInformacoes.length; i++) {
-            if (vtrInformacoes[i].media > axMediaMaior) {
-                axMediaMaior = vtrInformacoes[i].media;
-                indiceMaior = i;
+        for (let i = 0; i < vtrInformacoes.length; i++) {
+            if (vtNomesGerais.indexOf(buscar) == -1) {
+                alert('erro');
+                break
             }
+            var contador = i;
         }
-
-        var aluno = vtrInformacoes[indiceMaior];
-
-        divResult.innerHTML = `
-            <p>
-                Aluno: ${aluno.nome} –
-                N1: ${aluno.nota1} –
-                N2: ${aluno.nota2} –
-                N3: ${aluno.nota3} –
-                Média: ${aluno.media.toFixed(2)} –
-                Maior média
-            </p>
-        `;
+        divResult.innerHTML = `Nome: ${vtNomesGerais[contador]} <br> Nota 1: ${vtrInformacoes[contador].nota1} <br> Nota 2: ${vtrInformacoes[contador].nota2} <br> Nota 3: ${vtrInformacoes[contador].nota3} <br> ${vtrInformacoes[contador].media.toFixed(2)} `
     }
-
-    else if (axVerificacao === "MENOR") {
-
-        for (let i = 1; i < vtrInformacoes.length; i++) {
-            if (vtrInformacoes[i].media < axMediaMenor) {
-                axMediaMenor = vtrInformacoes[i].media;
-                indiceMenor = i;
-            }
-        }
-
-        var aluno = vtrInformacoes[indiceMenor];
-
-        divResult.innerHTML = `
-            <p>
-                Aluno: ${aluno.nome} –
-                N1: ${aluno.nota1} –
-                N2: ${aluno.nota2} –
-                N3: ${aluno.nota3} –
-                Média: ${aluno.media.toFixed(2)} –
-                Menor média
-            </p>
-        `;
-    }
-
-    else {
-        alert("Digite apenas MAIOR ou MENOR.");
-    }
-}
-    function maiorQue() {
-    if (vtrInformacoes.length === 0) {
-        alert("Nenhum aluno cadastrado ainda.");
-        return;
-    }
-
-    var axPrompt = prompt("Mostrar alunos com notas maiores que qual valor?");
-    var limite = Number(axPrompt);
-
-    divResult.innerHTML = "";
-
-    var encontrou = false;
-
-    for (let i = 0; i < vtrInformacoes.length; i++) {
-        var aluno = vtrInformacoes[i];
-
-        if (aluno.nota1 > limite || aluno.nota2 > limite || aluno.nota3 > limite) {
-            encontrou = true;
-
-            divResult.innerHTML += `
-                <p>
-                    Aluno: ${aluno.nome} –
-                    N1: ${aluno.nota1} –
-                    N2: ${aluno.nota2} –
-                    N3: ${aluno.nota3} –
-                    Média: ${aluno.media}
-                </p>
-            `;
-        }
-    }
-
-    if (!encontrou) {
-        divResult.innerHTML = "<p>Nenhum aluno possui nota maior que o valor informado.</p>";
-    }
-}
 
 </script>
 
