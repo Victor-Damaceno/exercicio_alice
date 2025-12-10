@@ -75,9 +75,23 @@
     }
 
     function listar() {
-        divResult.innerHTML = ``
+        divResult.innerHTML = '';
+        ordem = prompt('Em qual ordem deseja listar? Último para o primeiro cadastrado(1) ou Primerio para o último cadastrado(2)');
+        if(ordem == '' || (ordem != 1 && ordem != 2)){
+            ordem = prompt('O campo deve ser preenchido com 1 ou 2 para seguir...');
+        }else{
+            if(ordem == 1){
+                for (let index = vtNomesGerais.length -1; index >= 0; index--) {
+                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br>`;
+                }    
+            }
+            if(ordem == 2){
+                for (let index = 0; index < vtNomesGerais.length; index++) {
+                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br>`;
+                }
+            }   
+        }     
     }
-
 </script>
 
 </html>
