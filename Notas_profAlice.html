@@ -82,12 +82,12 @@
         }else{
             if(ordem == 1){
                 for (let index = vtNomesGerais.length -1; index >= 0; index--) {
-                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br>`;
+                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br>Média: ${vtrInformacoes[index].media}`;
                 }    
             }
             if(ordem == 2){
                 for (let index = 0; index < vtNomesGerais.length; index++) {
-                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br>`;
+                    divResult.innerHTML += `O aluno: ${vtNomesGerais[index]}<br>Nota 1: ${vtrInformacoes[index].nota1}<br>Nota 2: ${vtrInformacoes[index].nota2}<br> Nota 3: ${vtrInformacoes[index].nota3}<br> Média: ${vtrInformacoes[index].media}`;
                 }
             }   
         }     
