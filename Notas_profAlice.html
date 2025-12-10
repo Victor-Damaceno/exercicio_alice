@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professora Alice</title>
+</head>
+
+<body>
+    <h2>Cadastro de notas da Prof. Alice</h2>
+    Insira o nome do aluno <input type="text" name="" id="iptNome"><br>
+    Insira a 1ª nota do aluno: <input type="number" name="" id="iptNota1"><br>
+    Insira a 2ª nota do aluno: <input type="number" name="" id="iptNota2"><br>
+    Insira a 3ª nota do aluno: <input type="number" name="" id="iptNota3"><br>
+    <div id="divMsg"></div>
+    <button onclick="validar()">Cadastrar</button><button onclick="listar()">Listar</button><br>
+    <button onclick="mostrarAluno()">Aluno</button> <button onclick="media()">Mostrar média</button><br>
+    <button onclick="maiorQue()">Notas maior que:</button><br>
+    <div id="divResult"></div>
+</body>
+<script>
+    var axNome = "";
+    var axNota1 = 0;
+    var axNota2 = 0;
+    var axNota3 = 0;
+    var vtNomesGerais = [];
+    var vtrInformacoes = [];
+
+    function validar() {
+        axNome = iptNome.value;
+        axNota1 = Number(iptNota1.value);
+        axNota2 = Number(iptNota2.value);
+        axNota3 = Number(iptNota3.value);
+        var axDivMsg = "";
+        var validado = false;
+
+        if (iptNome.value == "" || axNome.length < 9 || vtNomesGerais.includes(axNome)) {
+            axDivMsg += "<p>Insira um nome válido! (Maior que 9 caracteres e que não seja repetido)</p>";
+            validado = true;
+        } if (iptNota1.value == "" || axNota1 < 0 || axNota1 > 10) {
+            axDivMsg += "<p>Insira a 1ª nota válida! (<b>Maior que 0</b> ou <b>Menor que 10</b>)</p>";
+            validado = true;
+        } if (iptNota2.value == "" || axNota2 < 0 || axNota2 > 10) {
+            axDivMsg += "<p>Insira a 2ª nota válida! (<b>Maior que 0</b> ou <b>Menor que 10</b>)</p>";
+            validado = true;
+        } if (iptNota3.value == "" || axNota3 < 0 || axNota3 > 10) {
+            axDivMsg += "<p>Insira a 3ª nota válida! (<b>Maior que 0</b> ou <b>Menor que 10</b>)</p>";
+            validado = true;
+        } if (validado == true) {
+            divMsg.innerHTML = axDivMsg;
+        } else {
+            iptNome.value = "";
+            iptNota1.value = "";
+            iptNota2.value = "";
+            iptNota3.value = "";
+            divMsg.innerHTML = "";
+            vtNomesGerais.push(axNome);
+            cadastrar()
+        }
+    }
+    function cadastrar() {
+
+        var axMedia = Number((axNota1 + axNota2 + axNota3) / 3);
+
+        Informacoes = {
+            nome: axNome,
+            nota1: axNota1,
+            nota2: axNota2,
+            nota3: axNota3,
+            media: axMedia
+        }
+
+        vtrInformacoes.push(Informacoes);
+    }
+
+    function listar() {
+        divResult.innerHTML = ``
+    }
+
+</script>
+
+</html>
